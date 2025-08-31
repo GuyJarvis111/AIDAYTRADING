@@ -1,0 +1,140 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Search } from "lucide-react";
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-black text-white p-6 space-y-6">
+      {/* Top Nav */}
+      <header className="flex justify-between items-center">
+        <div className="flex items-center gap-3">
+          <div className="h-6 w-6 rounded-full bg-green-500"></div>
+          <h1 className="text-lg font-semibold">AI Daytrading</h1>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="relative">
+            <Search className="absolute left-2 top-2 h-4 w-4 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search for stocks or crypto"
+              className="bg-zinc-900 border border-zinc-800 rounded-lg pl-8 pr-3 py-2 text-sm w-72"
+            />
+          </div>
+          <div className="h-8 w-8 rounded-full bg-gray-600"></div>
+        </div>
+      </header>
+
+      <div className="grid grid-cols-3 gap-6">
+        {/* Left Side (Stock Details) */}
+        <div className="col-span-2 space-y-6">
+          <Card className="bg-zinc-950 border-zinc-800">
+            <CardHeader className="flex justify-between items-start">
+              <div>
+                <CardTitle>Apple Inc. (AAPL)</CardTitle>
+                <p className="text-sm text-zinc-400">NASDAQ</p>
+              </div>
+              <div className="text-right">
+                <p className="text-xl font-semibold">$172.28</p>
+                <p className="text-green-500 text-sm">+2.15 (1.26%)</p>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="flex gap-3 mb-4">
+                <Button variant="secondary" size="sm">Candlestick</Button>
+                <Button variant="ghost" size="sm">Line Chart</Button>
+                <Button variant="ghost" size="sm">Indicators</Button>
+              </div>
+              <div className="bg-zinc-900 h-64 rounded-lg flex items-center justify-center">
+                <p className="text-zinc-600 text-sm">[Candlestick Chart Placeholder]</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-zinc-950 border-zinc-800">
+            <CardHeader>
+              <CardTitle>Key Financial Indicators</CardTitle>
+            </CardHeader>
+            <CardContent className="grid grid-cols-4 gap-4 text-center text-sm">
+              <div>
+                <p className="text-zinc-400">Market Cap</p>
+                <p className="font-semibold">2.82T</p>
+              </div>
+              <div>
+                <p className="text-zinc-400">P/E Ratio</p>
+                <p className="font-semibold">29.81</p>
+              </div>
+              <div>
+                <p className="text-zinc-400">EPS</p>
+                <p className="font-semibold">5.78</p>
+              </div>
+              <div>
+                <p className="text-zinc-400">Dividend Yield</p>
+                <p className="font-semibold">0.53%</p>
+              </div>
+              <div>
+                <p className="text-zinc-400">52 Week High</p>
+                <p className="font-semibold">$199.62</p>
+              </div>
+              <div>
+                <p className="text-zinc-400">52 Week Low</p>
+                <p className="font-semibold">$164.08</p>
+              </div>
+              <div>
+                <p className="text-zinc-400">Volume</p>
+                <p className="font-semibold">74.6M</p>
+              </div>
+              <div>
+                <p className="text-zinc-400">Avg. Volume</p>
+                <p className="font-semibold">88.9M</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Right Side (Watchlist + Signals) */}
+        <div className="space-y-6">
+          <Card className="bg-zinc-950 border-zinc-800">
+            <CardHeader>
+              <CardTitle>My Watchlist</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3 text-sm">
+              <div className="flex justify-between">
+                <p>NVDA Corp</p>
+                <p className="text-red-500">$926.79</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Tesla, Inc.</p>
+                <p className="text-green-500">$175.79</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Amazon.com, Inc.</p>
+                <p>$180.38</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Bitcoin</p>
+                <p className="text-red-500">$67,543.12</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Ethereum</p>
+                <p className="text-red-500">$3,512.67</p>
+              </div>
+              <Button className="w-full mt-2">View All</Button>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-zinc-950 border-zinc-800">
+            <CardHeader>
+              <CardTitle>AI Signals & Analytics</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3 text-sm">
+              <p className="text-green-500">• Strong Buy Signal for AAPL</p>
+              <p className="text-red-500">• High Volatility Alert for BTC</p>
+              <p className="text-blue-400">• AAPL: Approaching Resistance Level</p>
+              <p className="text-yellow-400">• NVDA: Volume Spike Detected</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}
